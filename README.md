@@ -1,5 +1,5 @@
 # webtechdevproject
-Echipa nr 4 Tema 6 - Plesanu, Zana, Cautnic
+Echipa nr 4 Tema 6 - Plesanu, Zana
 Aplicație web acordarea de feedback continuu
 
 Obiectiv

@@ -1,0 +1,43 @@
+openapi: 3.0.0
+info:
+  title: Get All Feedback API
+  version: 1.0.0
+  description: API to retrieve all feedback submitted by students.
+
+servers:
+  - url: http://localhost:3001
+    description: Local server
+
+paths:
+  /getAllFeedback:
+    get:
+      summary: Fetch All Feedback
+      description: Retrieves all feedback for activities submitted by students.
+      responses:
+        '200':
+          description: Feedback retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  feedback:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        activity_code:
+                          type: integer
+                          example: 1111
+                        reaction:
+                          type: string
+                          example: "happy"
+                        created_at:
+                          type: string
+                          format: date-time
+                          example: "2024-12-04T10:00:00Z"
+        '500':
+          description: Server error

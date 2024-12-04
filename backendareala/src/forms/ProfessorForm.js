@@ -34,7 +34,6 @@ function ProfessorForm() {
         <div className="boxTeacher">
             <h1>Welcome Teacher</h1>
 
-            {/* Componenta care afișează toate feedback-urile */}
             <ProfessorFeedback />
 
             <div className="create-activity">

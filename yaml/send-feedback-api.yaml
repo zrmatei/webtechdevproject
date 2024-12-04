@@ -1,0 +1,44 @@
+openapi: 3.0.0
+info:
+  title: Send Feedback API
+  version: 1.0.0
+  description: API for students to submit feedback for an activity.
+
+servers:
+  - url: http://localhost:3001
+    description: Local server
+
+paths:
+  /sendFeedback:
+    post:
+      summary: Submit Feedback
+      description: Allows students to submit feedback for a specific activity.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: integer
+                  example: 1111
+                reaction:
+                  type: string
+                  example: "happy"
+      responses:
+        '201':
+          description: Feedback submitted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "Feedback saved!"
+        '500':
+          description: Server error

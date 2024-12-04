@@ -1,0 +1,53 @@
+openapi: 3.0.0
+info:
+  title: Get Activity API
+  version: 1.0.0
+  description: API to retrieve activity details by access code.
+
+servers:
+  - url: http://localhost:3001
+    description: Local server
+
+paths:
+  /getActivity:
+    post:
+      summary: Retrieve Activity Details
+      description: Fetches activity details using an access code.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessCode:
+                  type: integer
+                  example: 1111
+      responses:
+        '200':
+          description: Activity found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  activity:
+                    type: object
+                    properties:
+                      activity:
+                        type: string
+                        example: "Math Quiz"
+                      date:
+                        type: string
+                        format: date
+                        example: "2024-12-01"
+                      time:
+                        type: integer
+                        example: 3600
+        '404':
+          description: Activity not found for the given code
+        '500':
+          description: Server error

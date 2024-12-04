@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Login from "./Login.js";
-import ProfessorForm from "./ProfessorForm.js";
-import StudentForm from "./StudentForm.js";
+import ProfessorForm from "../src/forms/ProfessorForm.js";
+import StudentForm from "../src/forms/StudentForm.js";
 import "../src/App.css"
 
 function App() {

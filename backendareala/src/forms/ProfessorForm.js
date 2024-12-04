@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ProfessorFeedback from "./ProfessorFeedback.js";
+import ProfessorFeedback from "../feedback/ProfessorFeedback.js";
 
 function ProfessorForm() {
     const [activity, setActivity] = useState('');

@@ -1,0 +1,48 @@
+.search_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+label{
+    font-size: 35px;
+    color: whitesmoke;
+    box-shadow: 0.5px;
+}
+
+#code{
+    height: 30px;
+    border-radius: 8px;
+    background-color: whitesmoke;
+    border: 1px solid black;
+}
+
+#savebtnstudent{
+    height: 35px;
+    border-radius: 8px;
+    font-weight: 600;
+    background-color: gray;
+    border: 1px solid black; 
+    color: white;
+    margin: 5px;
+}
+
+
+#savebtnstudent:hover{
+    background-color: #45a049;
+}
+
+.activitydetails{
+     background-color: lightblue;
+     border-radius: 8px;
+     padding: 50px;
+     box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+}
+
+.feedback-image {
+    width: 70px;
+    height: 50px;
+    padding-left: 15px;
+    object-fit: cover;
+    cursor: pointer;
+}

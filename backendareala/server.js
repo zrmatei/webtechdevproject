@@ -1,6 +1,9 @@
 import cors from 'cors';
 import { createPool } from 'mysql2/promise';
 import express from "express"
+import dotenv from 'dotenv';
+dotenv.config();
+
 
 const app = express();
 app.use(cors({
@@ -9,12 +12,14 @@ app.use(cors({
 app.use(express.json());
 
 const pool = createPool({
-    host: '16.171.142.38',
-    user: 'baza',
-    password: 'feedbackdb1',
-    database: 'feedbackdb',
-    port: 3306, 
-    connectionLimit: 10,
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DBNAME,
+    port: 3306,
+});
+app.listen(process.env.PORT || 3001, '0.0.0.0', () => {
+    console.log("Server running on port", process.env.PORT || 3001);
 });
 
 app.post('/login', async (req, res) => {
@@ -128,10 +133,3 @@ app.get('/getAllFeedback', async (req, res) => {
         });
     }
 });
-
-
-app.listen(process.env.PORT || 3001, '0.0.0.0', () => {
-    console.log("Server running on port", process.env.PORT || 3001);
-});
-
-

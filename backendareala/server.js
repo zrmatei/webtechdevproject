@@ -2,8 +2,8 @@ import cors from 'cors';
 import { createPool } from 'mysql2/promise';
 import express from "express"
 import dotenv from 'dotenv';
-dotenv.config();
 
+dotenv.config();
 
 const app = express();
 app.use(cors({

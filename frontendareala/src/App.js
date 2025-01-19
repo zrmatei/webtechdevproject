@@ -19,7 +19,7 @@ function App() {
         }
 
         try {
-            const response = await fetch('https://webtechdevproject.onrender.com', {
+            const response = await fetch('https://webtechdevproject.onrender.com/getActivity', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

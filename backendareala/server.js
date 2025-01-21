@@ -81,9 +81,25 @@ app.post('/getActivity', async (req, res) => {
         );
 
         if (rows.length > 0) {
+            const activity = rows[0];
+
+            // Time from the DB
+            const activityDuration = activity.time;
+
+            // Time remaining
+            const currentTime = Math.floor(Date.now() / 1000); // Actual time
+            const activityCreationTime = Math.floor(new Date(activity.date).getTime() / 1000); // Date activity in secs
+            const elapsedTime = currentTime - activityCreationTime;
+
+            const remainingTime = Math.max(0, activityDuration - elapsedTime);
+
             return res.status(200).json({
                 success: true,
-                activity: rows[0],
+                activity: {
+                    activity: activity.activity,
+                    date: activity.date,
+                },
+                time: remainingTime, // Send back the remaining time in secs
             });
         } else {
             return res.status(404).json({
@@ -99,6 +115,7 @@ app.post('/getActivity', async (req, res) => {
         });
     }
 });
+
 
 app.post('/sendFeedback', async (req, res) => {
     const { code, reaction } = req.body;
